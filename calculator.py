@@ -22,6 +22,15 @@ def divide(x, y):
         return "Error: Cannot divide by zero!"
     return x / y
 
+def log(x, base=10):
+    """Calculate logarithm of x with given base (default base 10)"""
+    if x <= 0:
+        return "Error: Logarithm undefined for non-positive numbers!"
+    if base <= 0 or base == 1:
+        return "Error: Invalid base for logarithm!"
+    import math
+    return math.log(x, base)
+
 def main():
     """Main calculator function"""
     print("=" * 40)
@@ -32,17 +41,18 @@ def main():
     print("2. Subtract")
     print("3. Multiply")
     print("4. Divide")
-    print("5. Exit")
+    print("5. Log")    
+    print("6. Exit")
     print("=" * 40)
     
     while True:
-        choice = input("\nEnter choice (1/2/3/4/5): ")
+        choice = input("\nEnter choice (1/2/3/4/5/6): ")
         
-        if choice == '5':
+        if choice == '6':
             print("Thank you for using the calculator!")
             break
         
-        if choice in ['1', '2', '3', '4']:
+        if choice in ['1', '2', '3', '4', '5']:
             try:
                 num1 = float(input("Enter first number: "))
                 num2 = float(input("Enter second number: "))
@@ -56,11 +66,14 @@ def main():
                 elif choice == '4':
                     result = divide(num1, num2)
                     print(f"\n{num1} ÷ {num2} = {result}")
+                elif choice == '5':
+                    result = log(num1, num2)
+                    print(f"\n{num1} log {num2} = {result}")   
             
             except ValueError:
                 print("\nInvalid input! Please enter numbers only.")
         else:
-            print("\nInvalid choice! Please select 1, 2, 3, 4, or 5.")
+            print("\nInvalid choice! Please select 1, 2, 3, 4, 5 or 6.")
 
 if __name__ == "__main__":
     main()
