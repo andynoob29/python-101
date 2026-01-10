@@ -20,7 +20,11 @@ def divide(x, y):
     """Divide two numbers"""
     if y == 0:
         return "Error: Cannot divide by zero!"
-    return x / y
+    return x / y 
+
+def power(x, y):
+    """Raise x to the power of y"""
+    return x ** y
 
 def main():
     """Main calculator function"""
@@ -32,17 +36,18 @@ def main():
     print("2. Subtract")
     print("3. Multiply")
     print("4. Divide")
-    print("5. Exit")
+    print("5. Power") 
+    print("6. Exit")
     print("=" * 40)
     
     while True:
-        choice = input("\nEnter choice (1/2/3/4/5): ")
+        choice = input("\nEnter choice (1/2/3/4/5/6): ")
         
-        if choice == '5':
+        if choice == '6':
             print("Thank you for using the calculator!")
             break
         
-        if choice in ['1', '2', '3', '4']:
+        if choice in ['1', '2', '3', '4', '5']:
             try:
                 num1 = float(input("Enter first number: "))
                 num2 = float(input("Enter second number: "))
@@ -56,11 +61,14 @@ def main():
                 elif choice == '4':
                     result = divide(num1, num2)
                     print(f"\n{num1} ÷ {num2} = {result}")
+                elif choice == '5':
+                    result = power(num1, num2)
+                    print(f"\n{num1} ** {num2} = {result}")
             
             except ValueError:
                 print("\nInvalid input! Please enter numbers only.")
         else:
-            print("\nInvalid choice! Please select 1, 2, 3, 4, or 5.")
+            print("\nInvalid choice! Please select 1, 2, 3, 4, 5 or 6.")
 
 if __name__ == "__main__":
     main()
