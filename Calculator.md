@@ -1,5 +1,6 @@
 # Python-101
 
+
 Collection of Python scripts and web applications.
 
 ## Projects
